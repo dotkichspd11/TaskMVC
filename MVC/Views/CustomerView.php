@@ -17,11 +17,11 @@ require_once './MVC/Views/header.php';
                 <h6 class="m-0 font-weight-bold text-primary">Tất Cả Các Khách Hàng</h6>
 
                 <div>
-                    <!-- <button class="btn btn-primary" type="button" data-toggle="modal"
+                    <button class="btn btn-primary" type="button" data-toggle="modal"
                         data-target="#exampleModalLong2">Thêm
                         xe </button>
 
-                    <form action="" method="post" enctype="multipart/form-data" class="modal fade"
+                    <form action="index.php?controller=customer&action=add" method="post" enctype="multipart/form-data" class="modal fade"
                         id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
                         aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -64,7 +64,7 @@ require_once './MVC/Views/header.php';
                                     </div>
                                 </div>
                             </div>
-                    </form> -->
+                    </form>
                 </div>
             </div>
         </div>

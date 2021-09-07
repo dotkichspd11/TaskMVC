@@ -18,8 +18,9 @@ switch($controller){
         require_once './MVC/Controllers/UserController.php';
         break;
     }
+    
     default :{
-        require_once './MVC/Views/login.php';
+        require_once 'login.php';
         break;
     }
 }

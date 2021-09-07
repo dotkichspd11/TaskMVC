@@ -12,7 +12,6 @@ switch($action){
     }
     case 'add' :{
         if(isset($_POST['add'])){
-            var_dump(isset($_POST['add']));die;
             $fullname = $_POST['fullname'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];

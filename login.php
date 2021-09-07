@@ -14,7 +14,9 @@ require_once './MVC/Models/config.php';
 // Define variables and initialize with empty values
 $email = $password = "";
 $email_err = $password_err = "";
- 
+
+
+
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['g-recaptcha-response'])){
@@ -67,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['g-recaptcha-response']
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
+                        if($password === $hashed_password){
                             // Password is correct, so start a new session
                             session_start();
                             
@@ -153,7 +155,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['g-recaptcha-response']
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Chào mừng bạn trở lại!</h1>
                                     </div>
-                                    <form class="user" name="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                    <form class="user" name="form" action="" method="post">
                                         <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"

@@ -79,7 +79,7 @@ require_once './MVC/Views/header.php';
                     $conn = new DB();
                     $con = $conn->connect();
                     
-                    $sql = "SELECT * FROM customer";
+                    $sql = "SELECT * FROM user";
                     // $sql = "SELECT rentalinfo.idhd,rentalinfo.idxe,rentalinfo.namecus,rentalinfo.address,rentalinfo.frontimg,rentalinfo.backimg,rentalinfo.datestart,rentalinfo.datefinish,products.name FROM rentalinfo, products WHERE rentalinfo.idxe = products.idxe";
                     //rentalinfo.id,rentalinfo.namecus,rentalinfo.datestart,rentalinfo.datefinish,rentalinfo.namecus, products.name FROM rentalinfo, products where rentalinfo.id = products.id
                     if($result = mysqli_query($con, $sql)){
@@ -87,24 +87,24 @@ require_once './MVC/Views/header.php';
                             echo "<table class='table table-bordered ' id='dataTable' width='100%' cellspacing='0'>" ;
                                 echo "<thead>";
                                     echo "<tr>";
-                                        echo "<th?>Username</th>";
-                echo "<th>Ten user</th>";
-                echo "<th>Email</th>";
-                echo "<th>Pass</th>";
-                echo "<th>Ngay sinh</th>";
-                echo "<th>Avatar</th>";
-                echo "<th>Thao tác</th>";
-                echo "</tr>";
-                echo "</thead>";
-                echo "<tbody>";
+                                        
+                                    echo "<th>Ten user</th>";
+                                    echo "<th>Fullname</th>";
+                                    echo "<th>Email</th>";
+                                
+                                    echo "<th>Ngay sinh</th>";
+                                    
+                                    echo "<th>Thao tác</th>";
+                                    echo "</tr>";
+                                    echo "</thead>";
+                                    echo "<tbody>";
                     ?>
-                    <?php  while($row = mysqli_fetch_array($result)){ ?>
-                    <tr>
-                        <td><?php echo $row['username']; ?> </td>
-                        <td><?php echo $row['fullname']; ?> </td>
-                        <td> <?php echo $row['email']; ?> </td>
-                        <td> <?php echo $row['pass'];?> </td>
-                        <td> <?php echo $row['dateofbirth'];?> </td>
+                <?php  while($row = mysqli_fetch_array($result)){ ?>
+                <tr>
+                    <td><?php echo $row['username']; ?> </td>
+                    <td><?php echo $row['fullname']; ?> </td>
+                    <td> <?php echo $row['email']; ?> </td>
+                    < <td> <?php echo $row['dateofbirth'];?> </td>
 
 
                         <td class='card-table-item'>
@@ -122,13 +122,13 @@ require_once './MVC/Views/header.php';
                                             <h5 class='modal-title'
                                                 id='exampleModalLongTitle<?php echo $row ['id']; ?>'>
                                                 Cập
-                                                nhật khach hang</h5>
+                                                nhật user</h5>
                                             <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                                                 <span aria-hidden='true'>&times;</span>
                                             </button>
                                         </div>
                                         <div class='modal-body'>
-                                        <div class='card-body_item '>
+                                            <div class='card-body_item '>
                                                 <label for=''>Username<sup>*</sup></label>
                                                 <input class='card-body_input' type='text' name='username'
                                                     value='<?php echo $row ['username']; ?>' required>
@@ -181,11 +181,11 @@ require_once './MVC/Views/header.php';
 
                         </td>
 
-                    </tr>
-                    <?php  }?>
+                </tr>
+                <?php  }?>
 
-                    </table>
-                    <?php
+                </table>
+                <?php
                         // Free result set
                         mysqli_free_result($result);
                         } else{
@@ -195,7 +195,7 @@ require_once './MVC/Views/header.php';
                         echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
                         }
                         ?>
-                    <?php
+                <?php
                         // Close connection
                         mysqli_close($con);
                         ?>
